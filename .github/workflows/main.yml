@@ -18,6 +18,6 @@ jobs:
           aosp-gcc: true
           aosp-clang: true
           android-version: 13
-          aosp-clang-version: r450784d
+          aosp-clang-version: clang-r450784d
 	  anykernel3: true
 	  anykernel3-url: https://github.com/osm0sis/AnyKernel3
