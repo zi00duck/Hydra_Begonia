@@ -1,29 +1,23 @@
-# A simple action usage
-name: Build Kernel
+name: CI
+
 on:
   workflow_dispatch:
 
 jobs:
-  Build-Kernel:
-    strategy:
-      fail-fast: false
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
+  build-kernel:
+    name: Build Kernel
+    runs-on: ubuntu-20.04
     steps:
-    - name: Build Kernel
-      uses: dabao1955/kernel_build_action@main
-      with:
+      - name: Build
+        uses: dabao1955/kernel_build_action@main
+        with:
           kernel-url: https://github.com/zi00duck/Hydra_Begonia
           kernel-branch: 13.x
-          config: cuttlefish_defconfig
+          config: defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true
-          ksu: true
-          ksu-version: main
           android-version: 13
           aosp-clang-version: r450784d
-          disable-lto: true
-          anykernel3: true
+		  anykernel3: true
+		  anykernel3-url: https://github.com/osm0sis/AnyKernel3
